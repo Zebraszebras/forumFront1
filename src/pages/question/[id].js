@@ -1,58 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
+import Answers from "./Answers";
+import AnswerQuestion from "./AnswerQuestion";
+import userModel from "@/models/userModel";
 
 const QuestionPage = () => {
   const router = useRouter();
+  const userId = userModel.id;
   const questionId = router.query.id;
+  const [loaded, setLoaded] = useState(false);
   const [question, setQuestion] = useState(null);
+  const [answers, setAnswers] = useState(null);
+
+  const fetchAnswers = async () => {
+    const response = await axios.get(
+      `/question/questions/${questionId}/answers`
+    );
+    setAnswers(response.data);
+  };
 
   useEffect(() => {
+    if (!questionId) {
+      return;
+    }
+
     const fetchQuestion = async () => {
       try {
         const response = await axios.get(`/question/questions/${questionId}`);
         setQuestion(response.data.question);
       } catch (error) {
-        console.error('Failed to fetch question:', error);
+        console.error("Failed to fetch question:", error);
       }
     };
 
-    fetchQuestion();
+    const fetchAll = async () => {
+      await Promise.all([fetchQuestion(), fetchAnswers()]);
+      setLoaded(true);
+    };
+    fetchAll();
   }, [questionId]);
+
+  const reloadAnswers = async () => {
+    setLoaded(false);
+    await fetchAnswers();
+    setLoaded(true);
+  };
 
   const handleDeleteQuestion = async () => {
     try {
       await axios.delete(`/question/question/${questionId}`);
-      console.log('Question deleted successfully');
+      console.log("Question deleted successfully");
+      router.push(`/`);
       // TODO: Handle the successful deletion, such as showing a success message or updating the UI
     } catch (error) {
-      console.error('Failed to delete question:', error);
+      console.error("Failed to delete question:", error);
       // TODO: Handle the failed deletion, such as showing an error message or displaying an error modal
     }
   };
 
-  const handleAnswerQuestion = () => {
-    // Navigate to the answer page and pass the question ID as a query parameter
-    router.push(`/answer/${questionId}`);
-  };
-
-  const handleViewAnsweredQuestions = () => {
-    // Navigate to the answered questions page
-    router.push('/questions/answered');
-  };
-
-  if (!question) {
+  if (!loaded) {
     return <div>Loading...</div>;
   }
 
   return (
     <>
       <div>Question: {question.question_text}</div>
-      <div>
-        <button onClick={handleDeleteQuestion}>Delete Question</button>
-        <button onClick={handleAnswerQuestion}>Answer Question</button>
-        <button onClick={handleViewAnsweredQuestions}>View Answered Questions</button>
-      </div>
+      {userId === question.asked_by && (
+        <div>
+          <button onClick={handleDeleteQuestion}>Delete Question</button>
+        </div>
+      )}
+      <Answers answers={answers} onDeleted={reloadAnswers} />
+      <AnswerQuestion questionId={questionId} onAnswered={reloadAnswers} />
     </>
   );
 };

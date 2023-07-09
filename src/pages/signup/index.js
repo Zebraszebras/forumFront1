@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import userModel from '@/models/userModel';
+import { useRouter } from 'next/router';
 
 const SignupPage = () => {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,9 +11,8 @@ const SignupPage = () => {
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post('http://localhost:8082/user/signup', { name, email, password });
-      console.log('Signup successful:', response);
-      
+      await userModel.signUp(name, email, password);
+      router.push("/");
     } catch (error) {
       console.error('Signup failed:', error.response.data);
       setError(error.response.data.response || 'Failed to signup. Please try again later.');

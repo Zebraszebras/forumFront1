@@ -1,14 +1,16 @@
 import { useState } from "react";
 import userModel from "@/models/userModel";
+import { useRouter } from "next/router";
 
 const LoginPage = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const login = async () => {
     try {
-        await userModel.login(email, password);
-      
+      await userModel.login(email, password);
+      router.push("/");
 
       // Redirect the user to another page
       // TODO: Add code to redirect the user to a different page using the appropriate navigation mechanism, such as React Router.
