@@ -10,7 +10,7 @@ const QuestionPage = () => {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const response = await axios.get(`http://localhost:8082/question/${questionId}`);
+        const response = await axios.get(`/question/questions/${questionId}`);
         setQuestion(response.data.question);
       } catch (error) {
         console.error('Failed to fetch question:', error);
@@ -22,7 +22,7 @@ const QuestionPage = () => {
 
   const handleDeleteQuestion = async () => {
     try {
-      await axios.delete(`http://localhost:8082/question/${questionId}`);
+      await axios.delete(`/question/question/${questionId}`);
       console.log('Question deleted successfully');
       // TODO: Handle the successful deletion, such as showing a success message or updating the UI
     } catch (error) {
