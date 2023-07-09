@@ -25,7 +25,7 @@ const QuestionsPage = () => {
       {questions.map((question) => (
         <div key={question._id}>
           <Link href={`/question/${question._id}`}>
-            <a>{question.title}</a>
+            <a>{question.question_text}</a>
           </Link>
         </div>
       ))}
