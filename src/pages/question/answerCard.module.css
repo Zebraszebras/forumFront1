@@ -12,7 +12,13 @@ font-weight: bold;
 padding: 10px;
 }
 .deleteAnswerButton{
-
+background-color: rgb(246, 219, 224);
+color: rgb(29, 3, 52);
+border-radius: 5px;
+padding: 5px;
+}
+.deleteAnswerButton:hover{
+background-color: rgb(200, 160, 238);
 }
 .likeDislikeWrapper{
     display: flex;

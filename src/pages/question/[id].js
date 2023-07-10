@@ -8,6 +8,7 @@ import styles from "./[id].module.css";
 
 const QuestionPage = () => {
   const router = useRouter();
+  const isLoggedIn = userModel.loggedIn;
   const userId = userModel.id;
   const questionId = router.query.id;
   const [loaded, setLoaded] = useState(false);
@@ -71,11 +72,11 @@ const QuestionPage = () => {
       Question: {question.question_text}</div>
       {userId === question.asked_by && (
         <div>
-          <button onClick={handleDeleteQuestion}>Delete Question</button>
+          <button className ={styles.deleteButton} onClick={handleDeleteQuestion}>Delete Question</button>
         </div>
       )}
-      <Answers answers={answers} onDeleted={reloadAnswers} />
-      <AnswerQuestion questionId={questionId} onAnswered={reloadAnswers} />
+      <Answers answers={answers} onDeleted={reloadAnswers} onReacted={reloadAnswers} />
+      {isLoggedIn && <AnswerQuestion questionId={questionId} onAnswered={reloadAnswers} />}
       </div>
     </>
   );
