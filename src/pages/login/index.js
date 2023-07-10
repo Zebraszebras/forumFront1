@@ -11,13 +11,8 @@ const LoginPage = () => {
     try {
       await userModel.login(email, password);
       router.push("/");
-
-      // Redirect the user to another page
-      // TODO: Add code to redirect the user to a different page using the appropriate navigation mechanism, such as React Router.
     } catch (error) {
-      // Handle login error
       console.error("Login failed:", error);
-      // TODO: Add code to display error message to the user.
     }
   };
 

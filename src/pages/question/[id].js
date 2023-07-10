@@ -52,10 +52,10 @@ const QuestionPage = () => {
       await axios.delete(`/question/question/${questionId}`);
       console.log("Question deleted successfully");
       router.push(`/`);
-      // TODO: Handle the successful deletion, such as showing a success message or updating the UI
+      
     } catch (error) {
       console.error("Failed to delete question:", error);
-      // TODO: Handle the failed deletion, such as showing an error message or displaying an error modal
+      
     }
   };
 
