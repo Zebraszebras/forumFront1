@@ -21,7 +21,7 @@ const Header = () => {
         <>
             <div className={styles.header}>
                 <img className={styles.logo}src={logo.src} alt="Question logo"></img>
-                Header
+               
                 <ul>
                     <li>
                 <Link href="/">Main</Link> </li>

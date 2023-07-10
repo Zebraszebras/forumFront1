@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <>
             <footer className={styles.footer}>
-                Footer
+              
                 <ul>
                     <li>
                 <Link href="https://edition.cnn.com/">Contacts</Link> </li>
