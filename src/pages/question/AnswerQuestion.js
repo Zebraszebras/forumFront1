@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import styles from "./answerQuestion.module.css";
 
 const AnswerQuestion = (props) => {
   const { questionId } = props;
@@ -13,13 +14,15 @@ const AnswerQuestion = (props) => {
 
   return (
     <>
-      <textarea
+    <div className={styles.answerQuestionWrapper}>
+      <textarea className={styles.textarea}
         placeholder="Write your answer..."
         value={answer}
         onInput={(event) => setAnswer(event.target.value)}
       />
 
-      <button onClick={postAnswer}>Post Answer</button>
+      <button className={styles.postAnswerButton} onClick={postAnswer}>Post Answer</button>
+      </div>
     </>
   );
 };
