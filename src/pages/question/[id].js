@@ -4,6 +4,7 @@ import axios from "axios";
 import Answers from "./Answers";
 import AnswerQuestion from "./AnswerQuestion";
 import userModel from "@/models/userModel";
+import styles from "./[id].module.css";
 
 const QuestionPage = () => {
   const router = useRouter();
@@ -65,7 +66,9 @@ const QuestionPage = () => {
 
   return (
     <>
-      <div>Question: {question.question_text}</div>
+    <div className={styles.questionWrapper}>
+      <div className={styles.questionText}> 
+      Question: {question.question_text}</div>
       {userId === question.asked_by && (
         <div>
           <button onClick={handleDeleteQuestion}>Delete Question</button>
@@ -73,6 +76,7 @@ const QuestionPage = () => {
       )}
       <Answers answers={answers} onDeleted={reloadAnswers} />
       <AnswerQuestion questionId={questionId} onAnswered={reloadAnswers} />
+      </div>
     </>
   );
 };
