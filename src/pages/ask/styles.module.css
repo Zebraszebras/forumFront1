@@ -1,0 +1,21 @@
+.askQuestion{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    /*align-items: center;*/
+}
+.textarea{
+    
+border-radius: 5px;
+background-color: rgb(244, 226, 229);
+color: rgb(6, 0, 5);
+margin-bottom: 20px;
+}
+
+.postQuestionButton{
+    border-radius: 5px;
+    color: rgb(45, 3, 43);
+    background-color: rgb(205, 198, 205);
+    padding: 5px;
+    font-weight: bold;
+}

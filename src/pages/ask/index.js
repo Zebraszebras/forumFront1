@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import styles from "./styles.module.css";
 
 const AskPage = () => {
   const router = useRouter();
@@ -15,11 +16,13 @@ const AskPage = () => {
 
   return (
     <>
-      <textarea
+    <div className={styles.askQuestion}>
+      <textarea className={styles.textarea}
         value={question}
         onInput={(event) => setQuestion(event.target.value)}
       />
-      <button onClick={postQuestion}>Post Question</button>
+      <button className={styles.postQuestionButton} onClick={postQuestion}>Post Question</button>
+      </div>
     </>
   );
 };
