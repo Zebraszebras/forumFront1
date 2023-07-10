@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
+import styles from "./styles.module.css";
 
 const QuestionsPage = () => {
   const [questions, setQuestions] = useState([]);
@@ -21,9 +22,9 @@ const QuestionsPage = () => {
 
   return (
     <>
-      <div>Questions</div>
+      <div className={styles.questionsWrapper}>Questions</div>
       {questions.map((question) => (
-        <div key={question._id}>
+        <div className={styles.questions} key={question._id}>
           <Link href={`/question/${question._id}`}>
             {question.question_text}
           </Link>

@@ -1,0 +1,19 @@
+
+.questionsWrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: rgb(205, 4, 188);
+    font-size: xx-large;
+    font-weight: bold;
+    align-items: center;
+}
+.questions{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    color: rgb(51, 11, 89);
+ font-weight: bold;
+ align-items: center;
+    
+}
