@@ -1,8 +1,16 @@
+import styles from "./styles.module.css";
+import Link from "next/link";
+
 const Footer = () => {
     return (
         <>
-            <footer>
+            <footer className={styles.footer}>
                 Footer
+                <ul>
+                    <li>
+                <Link href="https://edition.cnn.com/">Contacts</Link> </li>
+               <li>  <Link href="https://www.delfi.lt/">About us</Link> </li>
+               </ul>
             </footer>
         </>
     )
