@@ -1,5 +1,6 @@
 import axios from "axios";
 import userModel from "@/models/userModel";
+import styles from "./answerCard.module.css";
 
 const AnswerCard = (props) => {
   const { answer } = props;
@@ -22,11 +23,13 @@ const AnswerCard = (props) => {
 
   return (
     <>
-      <div>
-        <div>{answer.answer_text}</div>
-        {userId === answer.answered_by && <button onClick={deleteAnswer}>Delete Answer</button>}
-        <button onClick={likeAnswer}>Like</button>
-        <button onClick={dislikeAnswer}>Dislike</button>
+      <div className={styles.answerCardWrapper}>
+        <div className={styles.answerText}>{answer.answer_text}</div>
+        {userId === answer.answered_by && <button className={styles.deleteAnswerButton} onClick={deleteAnswer}>Delete Answer</button>}
+        <div className={styles.likeDislikeWrapper}>
+        <button className={styles.likeButton} onClick={likeAnswer}>Like</button>
+        <button className={styles.dislikeButton} onClick={dislikeAnswer}>Dislike</button>
+       </div>
       </div>
     </>
   );

@@ -1,0 +1,40 @@
+.answerCardWrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 900px;
+}
+
+.answerText{
+color: rgb(213, 32, 210);
+font-size: large;
+font-weight: bold;
+padding: 10px;
+}
+.deleteAnswerButton{
+
+}
+.likeDislikeWrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+ 
+}
+.likeButton{
+border-radius: 5px;
+background-color: rgb(37, 123, 19);
+color: black;
+margin-bottom: 10px;
+padding: 7px;
+font-weight: bold;
+
+}
+.dislikeButton{
+    border-radius: 5px;
+    background-color: rgb(212, 31, 31);
+    color: black;
+    margin-bottom: 10px;
+    padding: 3px;
+    font-weight: bold;
+   
+}
