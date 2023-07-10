@@ -1,6 +1,7 @@
 import { useState } from "react";
 import userModel from "@/models/userModel";
 import { useRouter } from "next/router";
+import styles from "./styles.module.css";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -18,24 +19,27 @@ const LoginPage = () => {
 
   return (
     <>
-      <div>Login page</div>
-
-      <label>
-        Email{" "}
-        <input
-          value={email}
-          onInput={(event) => setEmail(event.target.value)}
-        />
-      </label>
-      <label>
-        Password{" "}
-        <input
-          type="password"
-          value={password}
-          onInput={(event) => setPassword(event.target.value)}
-        />{" "}
-      </label>
-      <button onClick={login}>Login</button>
+      <div className={styles.loginPage}>Login page</div>
+      <div className={styles.input}>
+        <label>
+          Email{" "}
+          <input className={styles.email}
+            value={email}
+            onInput={(event) => setEmail(event.target.value)}
+          />
+        </label>
+        <label>
+          Password{" "}
+          <input className={styles.password}
+            type="password"
+            value={password}
+            onInput={(event) => setPassword(event.target.value)}
+          />{" "}
+        </label>
+        <div>
+          <button className={styles.loginButton} onClick={login}>Login</button>
+        </div>
+      </div>
     </>
   );
 };
