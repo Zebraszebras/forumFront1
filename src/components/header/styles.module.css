@@ -1,0 +1,45 @@
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: rgb(221, 214, 214);
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 80px;
+  width: 75px;
+}
+
+.header ul {
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+}
+
+.header ul li a {
+  color: rgb(23, 25, 23);
+  text-decoration: none;
+  font-weight: bold;
+}
+.header ul li a:hover {
+  color: rgb(247, 0, 161);
+}
+.welcome {
+  color: rgb(245, 9, 166);
+  font-size: large;
+  font-weight: bold;
+}
+
+.signOut {
+  border-radius: 15px;
+  background-color: rgb(250, 148, 195);
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+}
