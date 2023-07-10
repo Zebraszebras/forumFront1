@@ -1,0 +1,16 @@
+.noAnswers{
+    
+    color: red;
+    font-size: large;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.answersWrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    color: rgb(51, 11, 89);
+    font-weight: bold;
+    text-decoration: none;
+}
