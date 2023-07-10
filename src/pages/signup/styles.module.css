@@ -1,0 +1,34 @@
+.signUpWrapper{
+    display: flex;
+    flex-direction: column;
+    color: rgb(34, 6, 60);
+    font-weight: bold;
+    gap:15px;
+}
+.inputsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    padding: 10px;
+ 
+}
+.inputText,
+.inputEmail,
+.inputPassword{
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(234, 230, 239);
+    color: rgb(28, 10, 45);
+}
+.signUpButton{
+
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(247, 149, 242);
+    color: rgb(28, 10, 45);
+    font-weight: bold;
+    max-width: 400px;
+}
+.signUpButton:hover{
+    background-color: rgb(250, 107, 250);
+}

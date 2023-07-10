@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import userModel from '@/models/userModel';
 import { useRouter } from 'next/router';
+import styles from "./styles.module.css";
 
 const SignupPage = () => {
   const router = useRouter();
@@ -21,25 +22,31 @@ const SignupPage = () => {
 
   return (
     <>
+    <div className={styles.signUpWrapper}>
       <div>Sign up page</div>
       {error && <div>{error}</div>}
+      <div className={styles.inputsWrapper}>
       <label>
         Name:
-        <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
+        <input className={styles.inputText} type="text" value={name} onChange={(event) => setName(event.target.value)} />
       </label>
       <label>
         Email:
-        <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+        <input className={styles.inputEmail}  type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
       </label>
       <label>
         Password:
-        <input
+        <input className={styles.inputPassword} 
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
       </label>
-      <button onClick={handleSignup}>Sign Up</button>
+      </div>
+      <div>
+      <button className={styles.signUpButton} onClick={handleSignup}>Sign Up</button>
+      </div>
+      </div>
     </>
   );
 };
